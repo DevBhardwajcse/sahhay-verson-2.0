@@ -1,0 +1,919 @@
+Category	What the user should find
+Hospitals	Emergency hospitals, government hospitals, general hospitals
+Medical	Clinics, medical centres, doctors and medical practitioners
+Pharmacies	Medical stores and pharmacies
+Ambulance	Ambulance service providers and verified ambulance contact services
+Police	Police stations and verified police assistance locations
+Fire & Rescue	Fire stations and fire-rescue services
+Government health	PHCs, CHCs and government healthcare centres
+Emergency contacts	National and state government helplines
+
+Important technical detail: Google Places supports categories such as hospital, general_hospital, doctor, pharmacy, police, and fire_station. Its current standard Place Types list does not provide a dedicated ambulance place type. Ambulance discovery therefore needs additional text searches and verified local-government ambulance directories. 
+Google for Developers+1
+
+
+Also, finding an ambulance service on Google Maps does not prove that an ambulance is currently available. The interface must distinguish a listed service from live-confirmed availability.
+
+3. Important: Google AI Studio now supports Google Maps integration
+Native integration available
+As of November 2026, Google AI Studio supports Google Maps Platform integration directly in Build mode. It can recognize location-related prompts and configure Maps recommendations and skills.
+
+You can also start with Google's Maps Demo Key without setting up a Cloud billing account. The documented demo quota is 100 calls per day per API. A production deployment requires connecting a billed Google Cloud project and using the appropriate production configuration. 
+Google for Developers+1
+
+
+This means you should explicitly instruct your AI agent to use native Google Maps Platform integration in Google AI Studio, rather than generating a decorative, non-functional map.
+4. Ultimate master prompt for Google AI Studio
+How to use it: Open Google AI Studio → Build mode → Create a new app or open your existing project. Attach your UI/UX reference screenshot to the prompt and paste the following instructions.
+
+This prompt is designed to tell the AI agent to actually implement the application, not just generate a concept or a static dashboard.
+MASTER BUILD PROMPT
+SAHAAY — OFFLINE-FIRST AI EMERGENCY ASSISTANCE & RESOURCE NAVIGATION PLATFORM
+ROLE AND EXPECTATIONS
+Act as a senior full-stack engineer, AI application architect, Google Maps Platform specialist, healthcare technology product designer, PWA specialist, accessibility expert, and premium UI/UX designer.
+
+Your task is to design and implement a complete, functional, production-minded Progressive Web Application (PWA) called "SAHAAY".
+
+Do not create a basic prototype that only looks good. Build a working, responsive application with functional navigation, real Google Maps integration, geolocation, nearby-resource discovery, offline functionality, AI-assisted structured triage, emergency contact navigation, and reliable error handling.
+
+This project is intended for a high-quality open-innovation hackathon submission.
+
+The application must look like a professionally designed digital product created by an experienced product design and engineering team, not a generic AI-generated website.
+
+I will provide one or more UI/UX reference screenshots separately. Study those screenshots carefully before implementing the interface. Use them as the primary visual reference for the application's design language.
+
+Preserve their visual character, layout principles, design quality, spacing, typography, component hierarchy, and overall visual sophistication. Adapt that design language to this emergency-assistance application.
+
+Do not blindly copy unrelated content from the screenshot.
+
+PART 1 — PROJECT IDENTITY AND VISION
+Project name
+SAHAAY
+Product category
+Offline-first AI-powered healthcare triage, emergency assistance, and resource navigation PWA.
+Core vision
+Build an intelligent emergency assistance platform that bridges the gap between recognizing a potential health or safety emergency and reaching appropriate assistance.
+
+Millions of people in underserved, rural, remote, and crisis-affected regions face difficulties identifying the urgency of health or safety situations and locating the right resources.
+
+The problem becomes more challenging when:
+- Internet connectivity is unavailable or unreliable.
+- People do not understand whether a situation requires urgent medical attention.
+- Nearby healthcare information is fragmented.
+- People do not know the nearest hospital, clinic, pharmacy, police station, or fire station.
+- Emergency contacts are difficult to find.
+- Users face language or healthcare-literacy barriers.
+- Caregivers struggle to identify appropriate next steps.
+SAHAAY should address these problems through one intelligent and accessible platform.
+Central objective
+Reduce the time, confusion, and information barriers between identifying a potential emergency and reaching the appropriate source of assistance.
+Intended beneficiaries
+1. Rural and remote communities.
+2. People living in low-connectivity areas.
+3. Elderly individuals.
+4. Families and caregivers.
+5. People with limited healthcare literacy.
+6. People in disaster-affected communities.
+7. Community health workers and ASHA workers.
+8. People who need nearby emergency services.
+9. People who require accessible multilingual assistance.
+
+PART 2 — CORE PRODUCT ARCHITECTURE
+Build the application around five interconnected systems.
+System A: AI-powered health triage assistant
+Helps users communicate health concerns through guided, understandable questions.
+
+Uses structured information collection and clinician-approved triage rules to identify situations requiring professional attention.
+System B: Google Maps emergency navigation
+Uses Google Maps Platform to identify nearby physical emergency and healthcare resources using the user's explicitly approved location.
+System C: Emergency contacts and government helplines
+Provides a dedicated, searchable emergency contact directory with appropriate national and local government helplines.
+System D: Offline-first assistance engine
+Keeps the application shell, approved triage workflows, educational information, and independently sourced offline emergency-directory data available without continuous internet.
+System E: AI language and accessibility system
+Makes interactions understandable through simple language, multilingual support, and accessible user-interface controls.
+
+All five systems must work together through one coherent application experience.
+
+PART 3 — GOOGLE MAPS PLATFORM: ESSENTIAL FUNCTIONALITY
+This is a central feature, not an optional enhancement.
+
+Implement actual Google Maps Platform functionality through the native Google Maps integration available in Google AI Studio.
+
+Do not create a static map image, fake map, decorative map background, or manually generated demonstration markers and call it a working Google Maps integration.
+
+Use the appropriate Google Maps JavaScript API, Places API (New), Geolocation, and Routes API capabilities as supported by the project environment.
+
+The AI agent should use Google's official implementation guidance and the Google Maps Platform agent skill where available.
+3.1 User location detection
+When the user opens the emergency navigation feature, display a clear location-access explanation and a button:
+
+"Detect My Current Location"
+
+On user interaction:
+1. Request the device's location through the browser's Geolocation API.
+2. Display the browser's actual location permission prompt.
+3. Retrieve latitude and longitude only after permission is granted.
+4. Display the user's current location on Google Maps.
+5. Center the map around the user's location.
+6. Use a distinct marker for the user's position.
+7. Search for relevant nearby emergency resources.
+8. Show the current location's approximate address where supported.
+9. Indicate location accuracy when available.
+Location tracking must not start secretly.
+
+Never request continuous background location tracking unless a separate, clearly explained and genuinely necessary feature is implemented.
+
+Provide clear handling for:
+- Location permission granted.
+- Location permission denied.
+- Location services disabled.
+- Location timeout.
+- Inaccurate GPS position.
+- Browser geolocation unsupported.
+- Internet unavailable.
+Manual location fallback
+If location permission is denied or location detection fails, let users:
+- Search their city, village, district, or PIN code.
+- Enter an address.
+- Select a location manually on the map.
+- Adjust a map pin.
+The application must remain useful without GPS access.
+3.2 Emergency-resource category filters
+Build a dedicated emergency-resource discovery interface.
+
+Display attractive, accessible category selectors for:
+1. Emergency Hospitals.
+2. Government Hospitals.
+3. General Hospitals.
+4. Primary Health Centres.
+5. Community Health Centres.
+6. Medical Clinics.
+7. Doctors.
+8. Pharmacies and Medical Stores.
+9. Ambulance Services.
+10. Police Stations.
+11. Fire Stations.
+12. Government Emergency Services.
+Include an "All Emergency Resources" view, with individual filters for each category.
+
+Use the relevant Google Places categories wherever supported, including:
+- hospital
+- general_hospital
+- medical_center
+- medical_clinic
+- doctor
+- pharmacy
+- drugstore
+- police
+- fire_station
+Use additional appropriate text searches for ambulance service providers and other categories without a dedicated supported Place Type.
+
+Do not assume every Google Maps result is government-owned.
+
+Only label an establishment "Government Hospital", "Government Clinic", or "Government Service" when ownership has been verified through a trustworthy source.
+
+Unverified ownership must be shown as unknown rather than guessed.
+3.3 Nearby search implementation
+Use the Google Places API (New) Nearby Search functionality.
+
+The system should:
+- Search around the user's actual coordinates.
+- Allow adjustable search radii.
+- Support relevant place-type filtering.
+- Return actual Google Maps results.
+- Retrieve only necessary place fields.
+- Use appropriate response field masks.
+- Handle API quotas and errors.
+- Avoid unnecessary repeated requests.
+- Deduplicate results where appropriate.
+- Sort the results based on real location or route information.
+Start with a reasonable nearby radius, such as 5 km.
+
+When no suitable results are found:
+1. Inform the user.
+2. Offer to expand the search radius.
+3. Search a wider area, such as 10 km or 25 km.
+4. Where appropriate, allow searching up to the Places API search-radius limit.
+5. Show when a result is outside the initially selected radius.
+Never invent an emergency facility if the API returns no results.
+3.4 Nearest-resource calculation
+For each valid result, display:
+- Resource name.
+- Resource category.
+- Address.
+- Distance from the user's current position.
+- Contact number, where available.
+- Opening-hours information, where available.
+- Business status, where supplied.
+- Google Maps destination link.
+- Directions action.
+- Last retrieval or verification context.
+Prefer route-based distance and travel-time estimates through the Routes API when available.
+
+If only geographic proximity is calculated, label it as approximate straight-line distance.
+
+Never display a fabricated travel time.
+
+Sort resources by actual available distance information. Clearly distinguish geographic proximity from road travel distance.
+3.5 Interactive Google Maps interface
+Create a real, interactive Google Map with:
+- User-location marker.
+- Healthcare markers.
+- Police markers.
+- Fire-station markers.
+- Pharmacy markers.
+- Ambulance-service markers.
+- Custom, visually consistent category icons.
+- Interactive place information windows or detail panels.
+- Map zoom controls.
+- Current-location recenter button.
+- Search-radius controls.
+- Map/list view switcher.
+- Selected-resource highlighting.
+- Directions functionality.
+Do not overload the map with unnecessary markers.
+
+Apply sensible marker grouping or clustering when many results appear.
+
+Every marker must be connected to a real resource result.
+
+The resource list and map must remain synchronized. Selecting an item in either view should highlight the corresponding item in the other.
+3.6 Resource detail panel
+When a user selects a nearby resource, open a professional detail panel.
+
+Show:
+- Name.
+- Category.
+- Address.
+- Telephone number, if available.
+- Opening hours, if available.
+- Current business status, if available.
+- Distance.
+- Directions.
+- Open in Google Maps.
+- Call action when a real telephone number is provided.
+Do not display "Open Now" unless the underlying data supports that conclusion.
+
+Do not claim that a hospital has available beds, an available doctor, or an available ambulance unless an actual verified service integration supplies that information.
+
+A Google Maps listing does not establish real-time emergency capacity.
+
+PART 4 — GOVERNMENT HELPLINES AND EMERGENCY CONTACT DIRECTORY
+Create a dedicated Government Emergency Helplines section.
+
+This must be separate from the physical-location map.
+
+A telephone helpline does not need to have a map marker.
+
+The system should provide an easily searchable collection of verified emergency contacts appropriate to the user's country, state, and district.
+Initial India configuration
+Use the following national helpline data as an initial, source-verified configuration. Verify it again before release and permit state-specific settings.
+Service	Number
+Integrated emergency assistance	112
+National Ambulance Service	102
+Police helpline	100
+Fire emergency	101
+Child helpline	1098
+Women helpline	181
+Senior citizen helpline	14567
+Disaster relief commissioner	1070
+Road accident assistance	1073
+Cybercrime helpline	1930Use 112 as the prominent integrated emergency contact for India.
+
+Provide category-specific contacts where appropriate.
+
+Do not present every helpline as relevant to every emergency.
+
+The UI should let a user understand which service they are contacting.
+Helpline card requirements
+Each card must display:
+- Service name.
+- Verified telephone number.
+- Service category.
+- Short explanation.
+- Jurisdiction: national, state, or district.
+- Source of the information.
+- Last verification date.
+- One-tap calling action.
+Use an actual telephone link such as a tel: URI for call actions.
+
+Require a clear user action before initiating a call.
+
+Do not claim the call has been completed simply because the user pressed the button.
+Official source requirements
+Use trustworthy official sources, including the National Portal of India, relevant ministries, state government websites, and official emergency-response directories.
+
+Do not invent helpline numbers.
+
+Do not treat an unverified number collected from a random website as a government helpline.
+
+Where a local number is uncertain, display the national verified contact instead.
+
+Design the directory so that additional countries and local jurisdictions can be configured in the future.
+
+PART 5 — AI HEALTH TRIAGE ASSISTANT
+Create a dedicated AI-assisted health triage experience.
+
+The assistant must be friendly, understandable, accessible, and safety-focused.
+
+It should collect relevant information through structured questions instead of presenting a large questionnaire immediately.
+Core interaction
+1. The user selects Health Assistance.
+2. The application asks the user to describe the concern.
+3. The assistant identifies relevant information.
+4. The system presents appropriate follow-up questions.
+5. The answers are evaluated through a clinically reviewed decision-support pathway.
+6. The application provides an appropriate next-step recommendation.
+7. The resource-navigation system identifies relevant nearby services.
+Functional requirements
+Support:
+- Text-based communication.
+- Simple, understandable language.
+- Context-aware follow-up questions.
+- Structured question workflows.
+- Multilingual interaction.
+- Text-to-speech where available.
+- Voice input where available.
+- A concise information summary for a healthcare professional.
+Clinical safety rules
+This application is not a doctor and must never claim to provide a medical diagnosis.
+
+Do not allow unrestricted generative AI to independently determine high-risk medical urgency.
+
+Use clinician-reviewed triage protocols and deterministic safety-critical rules.
+
+The AI may assist with understanding the user's language, collecting information, translating approved content, and presenting explanations.
+
+Potentially serious or uncertain situations must be escalated to professional assessment rather than reassured.
+
+If the user indicates an immediate emergency, display the appropriate emergency action immediately. Do not require the user to complete the entire questionnaire.
+
+Never delay access to emergency contacts while the AI processes a response.
+
+Do not prescribe medication or suggest that a pharmacy visit is a substitute for emergency medical care.
+Safe prototype mode
+For the hackathon version:
+- Use test scenarios and clearly identified sample workflows.
+- Keep unvalidated triage rules in demonstration mode.
+- Include an administrative location for approved triage protocols.
+- Do not present experimental rules as clinically validated.
+- Clearly disclose that the application does not replace professional medical assessment.
+
+PART 6 — OFFLINE-FIRST PWA ARCHITECTURE
+Offline operation is one of the most important project requirements.
+
+The application must be built as an installable Progressive Web App.
+
+Use:
+- A valid web app manifest.
+- Service workers.
+- Application-shell caching.
+- Appropriate local storage or IndexedDB.
+- Offline detection.
+- Connection-status indicators.
+- Safe synchronization when a connection returns.
+Features that must work offline
+1. Main application interface.
+2. Navigation between essential screens.
+3. Previously downloaded approved educational information.
+4. Approved structured triage workflows.
+5. Locally configured emergency helpline numbers.
+6. Independently sourced offline healthcare-resource information.
+7. Saved emergency contacts.
+8. Offline status messaging.
+Features that require connectivity
+1. Live Google Maps tiles.
+2. Google Places live nearby searches.
+3. Live resource details retrieval.
+4. Current traffic-aware route calculations.
+5. Remote AI model requests.
+6. Online resource synchronization.
+7. Real-time facility availability checks.
+Never pretend that these live services work without internet connectivity.
+Critical Google Maps data-handling requirement
+Respect Google Maps Platform's caching and attribution policies.
+
+Do not bulk download or store Google Maps tiles, place names, business addresses, phone numbers, reviews, or other restricted Google Maps content as an offline directory.
+
+Store place IDs where permitted and retrieve fresh Google Maps details when required.
+
+For offline operation, create a separate first-party emergency-resource database populated from independently obtained and verified government or authorized community data.
+
+Keep its source, jurisdiction, and last verification date.
+
+This distinction is essential to making the product both useful offline and compliant with Google Maps Platform requirements.
+Offline experience
+When the user loses internet connectivity:
+- Show a clear Offline Mode indicator.
+- Keep cached screens usable.
+- Disable unavailable live-map operations gracefully.
+- Offer saved offline resources.
+- Show the last independent dataset update date.
+- Provide verified emergency phone contacts.
+- Explain which features require internet connectivity.
+Never show stale information as currently verified.
+
+PART 7 — MULTILINGUAL ACCESSIBILITY
+Build the interface with multilingual support in mind.
+
+Initial languages:
+- English.
+- Hindi.
+Design the translation system to support further regional languages.
+
+Requirements:
+- Language selector.
+- Consistent translated navigation.
+- Translated safety instructions.
+- Readable typography.
+- Simple wording.
+- Accessible buttons.
+- Clear labels.
+- Screen-reader support.
+- Appropriate color contrast.
+- Large touch targets.
+- Responsive layouts.
+- Keyboard navigation.
+Avoid mixing multiple languages in one sentence unless a user explicitly chooses that format.
+
+PART 8 — UI/UX REFERENCE SCREENSHOT INSTRUCTIONS
+I will provide one or more visual reference screenshots.
+
+These are important design references.
+
+Before writing the interface, carefully inspect the screenshots.
+
+Identify:
+1. Main layout structure.
+2. Typography system.
+3. Font hierarchy.
+4. Spacing scale.
+5. Color palette.
+6. Surface treatments.
+7. Border and radius styles.
+8. Navigation layout.
+9. Component hierarchy.
+10. Icon style.
+11. Button design.
+12. Information density.
+13. Visual balance.
+14. Use of whitespace.
+15. Responsive behavior.
+Use the screenshot's visual language to establish a consistent application design system.
+
+Do not generate a generic dashboard just because this is an AI-generated application.
+Design quality requirements
+- Strong visual hierarchy.
+- Intentional spacing.
+- Consistent grid alignment.
+- High-quality typography.
+- Carefully designed map controls.
+- Refined category icons.
+- Consistent button sizes.
+- Professional loading states.
+- Thoughtful empty states.
+- Elegant error messages.
+- Meaningful micro-interactions.
+- Responsive layouts.
+- Consistent component styling.
+Avoid:
+- Generic AI-generated dashboard layouts.
+- Random colorful gradients.
+- Excessive glassmorphism.
+- Unnecessary floating cards.
+- Excessive rounded rectangles.
+- Inconsistent spacing.
+- Emoji replacing proper icons.
+- Oversized headings.
+- Placeholder charts.
+- Random decorative elements.
+- Repeated generic cards.
+- Unnecessary animations.
+- Fake data presented as real information.
+Use a consistent professional icon system.
+
+Prefer restrained and consistent color usage. Emergency colors should have clear meaning and must not be used as decoration.
+
+The design must look deliberate, sophisticated, and trustworthy.
+Reference fidelity
+If the screenshot uses a distinctive sidebar, bottom navigation, top navigation, dashboard composition, or map arrangement, preserve the relevant layout principles.
+
+Do not redesign the entire application into a generic template.
+
+Adapt the reference style to the information architecture of SAHAAY while maintaining its distinctive visual identity.
+
+PART 9 — REQUIRED APPLICATION SCREENS
+Build the following screens as functional parts of one product.
+Screen 1: Welcome and onboarding
+Include:
+- Product identity.
+- Short purpose statement.
+- Language selection.
+- Privacy information.
+- Location permission explanation.
+- Start button.
+Keep onboarding simple.
+Screen 2: Home dashboard
+The dashboard should help a person quickly find assistance.
+
+Include:
+- Greeting.
+- Current connectivity status.
+- Current location status.
+- Prominent emergency-assistance section.
+- Health triage entry.
+- Find nearest hospital.
+- Find pharmacy.
+- Find ambulance service.
+- Find police station.
+- Find fire station.
+- Government helplines.
+- Offline resources.
+- Recent or saved places, if available.
+The most important emergency actions must be immediately visible.
+
+Avoid crowding the home screen.
+Screen 3: Emergency assistance
+Display:
+- Integrated emergency contact.
+- Appropriate category-specific helplines.
+- Emergency service descriptions.
+- One-tap calling actions.
+- Nearby emergency facilities.
+- Clear instructions for contacting relevant authorities.
+Do not imply that clicking a button dispatches an emergency vehicle.
+Screen 4: AI health triage
+Include:
+- Chat-style guided interface.
+- Structured questions.
+- Progress indicator.
+- Language selector.
+- Accessibility controls.
+- Appropriate escalation panel.
+- Summary of collected information.
+- Nearby medical-resource action.
+Screen 5: Nearby emergency map
+This is a major screen.
+
+Include:
+- Real Google Map.
+- User's current location.
+- Category filters.
+- Search input.
+- Radius control.
+- Map/list switch.
+- Resource markers.
+- Nearby resource results.
+- Distance information.
+- Directions actions.
+- Current-location recenter control.
+Screen 6: Resource details
+Include:
+- Facility name.
+- Type.
+- Address.
+- Verified ownership information, where established.
+- Telephone number.
+- Available operating hours.
+- Geographic distance.
+- Route information.
+- Call and directions actions.
+- Source and freshness information where available.
+Screen 7: Government helpline directory
+Include:
+- Search.
+- Category filters.
+- National services.
+- State and district services.
+- Verification information.
+- Calling actions.
+Screen 8: Offline assistance centre
+Include:
+- Downloaded approved resources.
+- Saved emergency information.
+- Offline triage workflows.
+- Dataset update information.
+- Current connection status.
+Screen 9: Settings and privacy
+Include:
+- Language.
+- Location permission information.
+- Privacy controls.
+- Saved resource management.
+- Offline data management.
+- Accessibility settings.
+- App information.
+
+PART 10 — TECHNICAL ARCHITECTURE AND INTEGRATION
+Use the existing Google AI Studio project environment and its supported framework.
+
+Prefer TypeScript and React if that matches the generated project scaffold.
+
+Do not replace an existing working architecture unnecessarily.
+
+Organize the application into reusable modules.
+
+Suggested logical modules:
+- triage
+- emergency-map
+- resource-search
+- helpline-directory
+- geolocation
+- offline-engine
+- language
+- privacy
+- shared-ui
+Google Maps integration
+Use native Google Maps Platform integration in AI Studio.
+
+Implement the correct combination of:
+- Maps JavaScript API.
+- Places API (New).
+- Nearby Search (New).
+- Place Details where required.
+- Routes API where available.
+- Browser Geolocation API.
+Do not use obsolete API patterns when current APIs are available.
+
+Use the official Places API field-mask mechanism and request only necessary fields.
+
+Do not issue unlimited API requests on every component render.
+
+Use controlled fetching, loading states, deduplication, and error handling.
+API security
+Keep sensitive server-side credentials in the supported environment's secret manager.
+
+Never commit secrets to GitHub.
+
+Never insert private API credentials into source code.
+
+Use appropriate API key restrictions and production security settings.
+
+For any backend-proxied Maps request, use server-side request handling where appropriate.
+
+Do not expose a secret server credential through a publicly accessible endpoint.
+Gemini integration
+Use the configured server-side Gemini API integration available in the Google AI Studio environment.
+
+Keep Gemini credentials server-side.
+
+Do not rely on a remote Gemini request for essential offline functionality.
+
+When offline, use locally available deterministic workflows and previously approved content.
+Data architecture
+Separate:
+1. Google Maps live resource results.
+2. Independently sourced offline emergency-resource records.
+3. Government helpline configuration.
+4. Clinician-approved triage rules.
+5. User preferences and permitted local information.
+Never merge unverified records into the verified government directory.
+
+PART 11 — PRIVACY AND RESPONSIBLE DESIGN
+Treat all health, safety, and location information as sensitive.
+
+Requirements:
+- Explicit consent for location access.
+- Data minimization.
+- Avoid collecting unnecessary identifying information.
+- Do not persist precise location unnecessarily.
+- Secure locally stored information.
+- Do not expose private health information in public logs.
+- Make data sharing optional.
+- Explain what information is stored.
+- Allow users to remove optional saved data.
+- Protect application secrets.
+- Use appropriate security controls.
+- Follow applicable data-protection requirements.
+For an Indian deployment, account for the applicable Digital Personal Data Protection framework.
+
+PART 12 — FUNCTIONALITY AND IMPLEMENTATION QUALITY
+Do not build a collection of static mockups.
+
+Every prominent interactive control must perform its advertised action.
+
+Examples:
+- Location button requests actual geolocation.
+- Search input performs an actual search.
+- Category filter changes the resource results.
+- Map markers select real returned resources.
+- Directions open the appropriate navigation destination.
+- Telephone buttons use a real available phone number.
+- Online/offline status reflects actual connectivity.
+- Language selector changes the application's language.
+- Navigation controls open the correct screen.
+- Resource list and map remain synchronized.
+If an API is not configured, display a clear integration or configuration message rather than showing fictional success.
+
+If sample data is necessary, label it as demonstration data.
+
+Provide loading, empty, error, retry, and permission-denied states.
+
+Do not leave nonfunctional placeholder buttons in the final result.
+
+PART 13 — TESTING AND ACCEPTANCE CRITERIA
+Test the application using realistic, non-emergency demonstration scenarios.
+Location tests
+- Location permission granted.
+- Location permission denied.
+- Location unavailable.
+- Manual location selected.
+- Different search radii.
+Maps tests
+- Nearby hospital results.
+- Pharmacy results.
+- Doctor and clinic results.
+- Police station results.
+- Fire station results.
+- Ambulance text-search results.
+- No results.
+- API quota exceeded.
+- Network interruption.
+- Invalid API configuration.
+Offline tests
+- Open the app while online.
+- Load the PWA.
+- Disconnect internet.
+- Reopen the application.
+- Navigate between cached screens.
+- Access saved emergency numbers.
+- Access independently sourced downloaded resources.
+- Restore internet.
+- Verify that live features recover correctly.
+Triage tests
+- Ordinary non-emergency demonstration workflow.
+- Potentially urgent demonstration workflow.
+- Uncertain responses.
+- Missing answers.
+- User requests emergency assistance immediately.
+- Language-switching behavior.
+Use simulated scenarios and approved test cases. Do not test experimental triage decisions on actual emergencies.
+Visual tests
+- Desktop.
+- Mobile.
+- Tablet.
+- Different screen sizes.
+- Long text.
+- Hindi text.
+- Loading states.
+- Empty states.
+- Permission prompts.
+Definition of done
+The project is not complete until:
+1. The application builds successfully.
+2. Main navigation works.
+3. Location permissions are handled.
+4. Real Google Maps integration is present.
+5. Nearby resource search works when configured.
+6. Category filters work.
+7. Resource details display actual returned information.
+8. Calling and navigation actions work.
+9. Helplines are sourced and correctly presented.
+10. Offline application-shell functionality works.
+11. Offline resources are handled separately from restricted Google Maps content.
+12. Safety-critical triage behavior follows the configured approved rules.
+13. Responsive layouts work.
+14. There are no obvious broken controls.
+15. API configuration and limitations are documented.
+
+PART 14 — EXECUTION INSTRUCTIONS
+Follow these instructions carefully.
+1. First, inspect the provided UI/UX reference screenshots.
+2. Inspect the current Google AI Studio project and its existing files.
+3. Understand the current framework and project structure.
+4. Create an implementation plan internally.
+5. Establish the design system from the screenshots.
+6. Implement the main application and responsive navigation.
+7. Integrate Google Maps through the supported AI Studio integration.
+8. Implement geolocation and nearby-resource discovery.
+9. Build the separate government helpline directory.
+10. Implement AI-assisted structured triage with appropriate safety boundaries.
+11. Implement offline-first PWA functionality.
+12. Add multilingual and accessibility support.
+13. Test all major interactions.
+14. Fix build errors, runtime errors, and visual inconsistencies.
+15. Provide a clear summary of what is functional and what requires external configuration.
+Do not stop after writing an architecture document.
+
+Do not stop after creating a homepage.
+
+Do not merely describe components.
+
+Actually implement the application in the existing project.
+
+Do not remove useful existing functionality.
+
+Do not silently replace real APIs with static data.
+
+Do not claim that something works until the implementation has actually been tested.
+
+When a required external credential or service configuration is missing, implement the integration properly and provide a precise configuration instruction.
+
+Prioritize a reliable, complete central experience over a large number of unfinished features.
+
+FINAL PRODUCT STANDARD
+The final result should feel like a carefully designed, trustworthy emergency-assistance product with:
+- A premium and distinctive visual identity.
+- A genuinely functional Google Maps experience.
+- Accurate location-based nearby-resource discovery.
+- A useful AI-assisted triage experience.
+- A separate verified government helpline directory.
+- Real offline-first behavior.
+- Accessibility and multilingual support.
+- Strong privacy and clinical-safety boundaries.
+- Reliable error handling.
+- A polished responsive experience.
+The product must communicate one essential message:
+
+"SAHAAY helps people move from uncertainty to appropriate assistance, even when reliable internet access is unavailable."
+
+Build this as a cohesive, functional product, not as a generic AI-generated dashboard.
+
+
+
+
+
+5. Which skills should you add to Google AI Studio?
+I have one particularly important recommendation here.
+
+
+
+
+
+
+
+
+
+
+Google Maps Platform Agent Skills
+My top recommendation
+
+
+This is Google's own official collection of agent skills for building Google Maps applications.
+
+It covers nearby searches, maps, geolocation, Places APIs, routing, markers, custom styling, and implementation best practices. Google specifically documents its compatibility with AI Studio. 
+Google for Developers
+
+Open official Google Maps Agent Skills repository
+How to install it
+In your AI Studio project, open the terminal and run:
+Step 1 — Install
+npx skills add googlemaps/agent-skills
+
+
+ Copy installation command
+Step 2 — Ask the agent to use it
+/google-maps-platform
+
+Implement the complete Google Maps emergency resource
+discovery system in my SAHAAY application.
+
+Use official Google Maps Platform documentation,
+Nearby Search, Places API, geolocation, route
+calculation, security practices, and cost optimization.
+
+
+ Copy skill instruction
+The official installation guide confirms the npx skills add googlemaps/agent-skills command and explicitly lists AI Studio as a supported environment. 
+Google for Developers
+
+Other skills and expertise to give the agent
+I would prioritize these capabilities:
+Priority	Skill or expertise	Why it matters
+1	Google Maps Platform	Real nearby searches, maps and routing
+2	PWA and offline-first engineering	Service workers, caching and offline recovery
+3	Frontend UI/UX engineering	Professional interface based on your screenshots
+4	React and TypeScript best practices	Maintainable application architecture
+5	Accessibility and internationalization	Hindi, English and accessible controls
+6	API security	Secure credentials, permissions and request handling
+7	Healthcare AI safety	Reliable triage boundaries and escalation
+8	Testing and debugging	Validate that the application actually works
+
+You don't need to install eight random GitHub repositories. Install the official Maps skill first, then instruct the agent to follow the other specialist practices in the master prompt.
+
+6. Important Google Maps configuration
+For the first prototype, use the native Google Maps integration available in AI Studio.
+Recommended setup
+1. Open Google AI Studio Build mode.
+2. Start with your project and master prompt.
+3. When Maps integration is offered, enable Google Maps Platform.
+4. Start with the Maps Demo Key for prototyping.
+5. Test the actual map, location permission and Places searches.
+6. Before production, connect an appropriately configured Google Cloud project and configure API restrictions and billing.
+The demo key has a documented limit of 100 calls per day per API. Production use requires the appropriate billed project. 
+Google for Developers
+
+
+Official setup documentation: Google Maps Platform in AI Studio.
+7. One final recommendation for your project
+For India, make 112 the prominent integrated emergency contact. The Ministry of Home Affairs describes 112 as the nationwide emergency response number covering police, health, fire and other emergency services. The National Portal of India also publishes the helpline directory used as the initial reference for the prompt. 
+Ministry of Home Affairs+1
+
+
+Also remember these three technical limitations:
+1. GPS can identify the user's location, but it does not guarantee a network connection.
+2. Google Maps can locate listed facilities, but it cannot guarantee live ambulance availability or hospital capacity.
+3. The app can work offline using its own saved data, but live Google Maps searches and remote AI requests require connectivity. Google Maps content must also follow its storage and caching policies. 
+   Google for Developers+1
+My recommendation: Build the initial version around three exceptionally polished experiences: AI health triage, Google Maps emergency-resource discovery, and offline emergency assistance. Those three together demonstrate the project's central purpose much more convincingly than dozens of disconnected features.

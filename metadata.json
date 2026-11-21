@@ -1,0 +1,12 @@
+{
+  "name": "SAHAAY — Offline-First AI Medical Assistant & Emergency Navigation",
+  "description": "Offline-first bilingual (Hindi & English) AI medical information assistant, medicine packaging scanner, visible injury observer, guided health triage, verified government helplines, and live Google Maps emergency resource locator.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone",
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), var(--font-devanagari), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-devanagari), system-ui, -apple-system, sans-serif;
+  --font-clinical-display: var(--font-geist), var(--font-devanagari), system-ui, -apple-system, sans-serif;
+  --font-clinical-body: var(--font-inter), var(--font-devanagari), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-ibm-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+.clinical-precision-surface {
+  background-color: #0f131d;
+  color: #dfe2f1;
+  font-family: var(--font-clinical-body);
+}
+
+.clinical-precision-surface h1,
+.clinical-precision-surface h2,
+.clinical-precision-surface h3,
+.clinical-precision-surface h4,
+.clinical-precision-display {
+  font-family: var(--font-clinical-display);
+}
+
+.clinical-grid-backdrop {
+  background-image:
+    linear-gradient(to right, rgba(76, 215, 246, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(76, 215, 246, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.markdown-clinical h1,
+.markdown-clinical h2,
+.markdown-clinical h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.markdown-clinical h3 {
+  font-size: 0.97rem;
+}
+
+.markdown-clinical p {
+  margin-bottom: 0.55rem;
+  line-height: 1.6;
+}
+
+.markdown-clinical ul,
+.markdown-clinical ol {
+  padding-left: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.markdown-clinical ul {
+  list-style-type: disc;
+}
+
+.markdown-clinical ol {
+  list-style-type: decimal;
+}
+
+.markdown-clinical li {
+  margin-bottom: 0.25rem;
+  line-height: 1.55;
+}
+
+.markdown-clinical strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

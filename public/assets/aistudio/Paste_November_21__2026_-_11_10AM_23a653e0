@@ -1,0 +1,759 @@
+Understanding the problem statement
+Your problem statement addresses a major real-world challenge: people do not always know what to do when a health or safety emergency occurs, and they may not have reliable access to information or help when they need it most.
+
+Imagine someone in a remote village suddenly becomes seriously unwell.
+
+The person or their family may have several questions:
+- Is this situation potentially dangerous?
+- Does this person need immediate medical attention?
+- Should we contact emergency services or visit a healthcare facility?
+- Where is the nearest suitable clinic or hospital?
+- Is there an ambulance or emergency contact available?
+- What should we do when the internet is unavailable?
+These questions can become difficult to answer when people have limited healthcare knowledge, lack access to reliable information, or cannot easily contact healthcare professionals.
+
+The project aims to address this gap through an offline-capable digital assistant.
+The fundamental problem
+The central problem is not simply that people lack access to hospitals.
+
+It is that there is often a gap between:
+1. Recognizing that something may be wrong.
+2. Understanding how urgently help is needed.
+3. Knowing which service should be contacted.
+4. Finding an appropriate nearby resource.
+5. Successfully reaching that resource.
+This is what makes the problem interesting.
+
+Your proposed application acts as a bridge between recognizing a potential emergency and reaching appropriate assistance.
+
+The central concept is to reduce delays caused by uncertainty, inaccessible information, and disconnected healthcare-resource navigation.
+
+2. Why is this problem important?
+This problem becomes particularly important in areas where healthcare access, communication infrastructure, and reliable information are limited.
+
+Consider the following situations.
+Situation A: A rural family facing a medical emergency
+
+
+
+
+
+
+
+
+
+
+The challenge
+
+A family member experiences a worrying health problem. The family is unsure whether it requires urgent attention, and they do not know which nearby healthcare facility is appropriate.
+
+How the project helps
+
+The assistant collects structured information, checks it against approved urgency guidelines, and provides an appropriate next step with relevant nearby resources.
+
+
+Situation B: A person in an area with poor connectivity
+
+
+
+
+
+
+
+
+
+
+The challenge
+
+An individual needs health information, but a conventional online health application cannot load properly because the internet connection is unreliable.
+
+How the project helps
+
+The application can retain its essential screening process, health guidance, emergency contacts, and saved local-resource information on the device.
+
+
+Situation C: A caregiver helping an elderly person
+
+
+
+
+
+
+
+
+
+
+The challenge
+
+A caregiver may struggle to communicate symptoms, understand urgency, or find the correct healthcare service.
+
+How the project helps
+
+A simple question-and-answer interface guides the caregiver through a structured information-gathering process and identifies suitable next steps.
+
+
+Situation D: A person experiencing a safety emergency
+
+
+
+
+
+
+
+
+
+
+The challenge
+
+Someone may need immediate assistance because of a personal safety incident, accident, natural disaster, or another emergency.
+
+How the project helps
+
+The application provides accessible emergency contacts, location information, and relevant safety-resource navigation.
+
+
+These situations demonstrate that the project is not limited to one particular disease, hospital, or community.
+
+It addresses a broader issue: making essential help easier to identify and reach.
+
+3. Main objectives of the project
+The objectives can be divided into eight major areas.
+Objective 1: Early identification of potentially urgent situations
+The application should help users understand the potential urgency of a situation.
+
+A person should not need medical terminology to start using the application.
+
+For example, rather than asking someone to select a complicated medical diagnosis, the system can ask understandable questions about their concern and relevant symptoms.
+
+The application then evaluates the answers using clinician-approved triage protocols.
+
+Its purpose is to identify whether the situation requires immediate escalation, urgent professional assessment, or another appropriate level of care.
+
+Expected result: Users receive clearer information about the urgency of their situation and the appropriate next step.
+
+Importantly, this is triage support, not medical diagnosis. The World Health Organization describes triage as prioritizing patients based on estimated urgency and identifies it as an important part of healthcare access. 
+World Health Organization
+
+Objective 2: Offline accessibility
+This is one of the most important and differentiating objectives.
+
+Traditional internet-dependent applications may become inaccessible when connectivity disappears.
+
+Your project should be designed so that its essential functions continue working without a continuous internet connection.
+
+The application could retain:
+- Its main user interface.
+- Structured question-and-answer workflows.
+- Locally stored triage rules.
+- Essential educational information.
+- Saved emergency contacts.
+- A downloaded directory of healthcare facilities.
+- Previously saved resource information.
+A Progressive Web App (PWA) can support this through technologies such as service workers and local data storage.
+
+The main objective is to make essential assistance accessible even during connectivity interruptions.
+
+Expected result: Users can access essential guidance without depending on a continuous internet connection.
+Objective 3: Intelligent, structured assistance
+A major objective is to make the interaction understandable and natural.
+
+Instead of overwhelming a user with large amounts of information, the assistant should guide them through relevant questions.
+
+The system could support:
+- Simple text-based interaction.
+- Multiple local languages.
+- Natural-language understanding.
+- Voice-based input where available.
+- Adaptive questions based on previous answers.
+- Easy-to-understand summaries.
+For example, a user could explain their concern in everyday language. A lightweight language-processing system could identify relevant information and present the next structured question.
+
+However, high-risk decisions should be governed by validated clinical protocols rather than unrestricted AI-generated responses.
+
+Expected result: People with different levels of healthcare and digital literacy can interact with the application more easily.
+Objective 4: Finding nearby healthcare resources
+Identifying urgency is only one part of the problem.
+
+Users also need to know where to seek assistance.
+
+The application should provide a directory of relevant resources, such as:
+- Government hospitals.
+- Primary Health Centres.
+- Community Health Centres.
+- Clinics.
+- Ambulance services.
+- Emergency response contacts.
+- Community healthcare support.
+- Other locally relevant assistance providers.
+Each resource could include its name, address, contact number, service category, and last verification date.
+
+Expected result: Users can move from understanding their situation to identifying a practical source of assistance.
+Objective 5: Emergency and safety navigation
+The project should also support non-medical safety emergencies.
+
+Examples include situations requiring police, fire, disaster-response, or other relevant assistance.
+
+In India, the Ministry of Home Affairs operates the Emergency Response Support System through the nationwide emergency number 112. It connects emergency reports with relevant response services and uses geographic information systems for response coordination. 
+Ministry of Home Affairs
+
+
+The application could make relevant contacts easier to find and provide a clear route to the appropriate service.
+
+Expected result: People can identify relevant emergency contacts without searching through multiple websites or directories.
+Objective 6: Improve accessibility and inclusivity
+The application should work for people with different abilities, ages, education levels, and language preferences.
+
+Important considerations include:
+- Regional-language support.
+- Simple wording.
+- Large and readable text.
+- Clear visual indicators.
+- Voice interaction.
+- Screen-reader compatibility.
+- Minimal navigation steps.
+- Low-data operation.
+The application should not assume that every user is highly educated, technically experienced, or comfortable with medical terminology.
+
+Expected result: More people can use essential healthcare-navigation services independently.
+Objective 7: Support caregivers and community healthcare workers
+The application should not only support patients.
+
+It could also help community health workers and caregivers gather information, identify urgency according to approved protocols, and locate nearby facilities.
+
+For example, a community health worker could use a phone to guide someone through the process and identify an appropriate facility for further assessment.
+
+Expected result: The platform becomes a useful support tool for community-level healthcare navigation.
+Objective 8: Protect personal information
+Health and safety information can be highly sensitive.
+
+The application should therefore collect only information genuinely required for its functionality.
+
+Privacy-related objectives should include:
+- Clear explanations of data collection.
+- Appropriate consent.
+- Minimal personal data collection.
+- Secure storage.
+- Limited retention.
+- No unnecessary sharing of health information.
+- Control over optional data synchronization.
+For an Indian deployment, the Digital Personal Data Protection Act, 2023 and the DPDP Rules, 2025 are important considerations. The published framework emphasizes consent, purpose limitation, data minimization, security safeguards, and accountability. 
+Press Information Bureau
+
+
+4. What exactly will the application do?
+Think of your application as a combination of three systems.
+The three pillars of the solution
+
+1. Intelligent triage assistant
+
+Understands the user's concern through structured questions and identifies potential urgency.
+
+
+
+
+2. Offline assistance engine
+
+Keeps essential guidance, screening workflows, and saved information accessible without internet.
+
+
+
+
+3. Resource-navigation system
+
+Helps identify relevant clinics, hospitals, emergency contacts, and other nearby resources.
+
+
+
+These three components work together to create one complete solution.
+
+A normal health chatbot might answer questions.
+
+Your proposed project goes further by connecting the understanding of a problem with a practical next step.
+
+5. How the system would work: Complete user journey
+The following is the proposed experience from opening the app to finding help.
+User journey
+1. Step 1 — Open the application
+   
+   The user opens the installed PWA, even without an internet connection.
+2. Step 2 — Select the type of assistance
+   
+   The user chooses between a health concern, a safety emergency, or finding a nearby healthcare resource.
+3. Step 3 — Answer structured questions
+   
+   The assistant gathers relevant information using simple questions. It may support text or voice input.
+4. Step 4 — Evaluate urgency
+   
+   Validated triage rules evaluate the available answers. Uncertainty or potential danger should trigger professional escalation rather than reassurance.
+5. Step 5 — Present the recommended next step
+   
+   The application displays understandable guidance about the appropriate level of assistance.
+6. Step 6 — Find relevant resources
+   
+   It identifies nearby known facilities and appropriate emergency contacts using the available location and directory information.
+7. Step 7 — Help the user connect
+   
+   The application offers available contact options, facility details, and directions where supported.
+8. Step 8 — Save or update information
+   
+   The user may keep a summary for sharing with a healthcare professional. When connectivity returns, resource information can be refreshed.
+
+Example of an application interaction
+This is an illustrative user journey, not a clinical decision protocol.
+Health assistance
+Illustrative demo
+
+Hello! What kind of assistance do you need today?
+I am concerned about someone's health.
+
+I can help gather some information. Is the person experiencing a sudden or potentially serious change in their condition?
+Yes, I am worried.
+
+This may need urgent professional attention. Please contact emergency services or seek immediate professional assessment. Do not delay while completing this questionnaire.
+Emergency contact
+
+112
+India's nationwide emergency response number. A working mobile connection is required to place a call.
+
+Illustrative interface only. Actual screening questions, escalation rules, and wording must be reviewed and approved by qualified healthcare professionals.
+The important point is that the AI should not attempt to diagnose a condition.
+
+It should help recognize possible urgency and direct the user toward appropriate help.
+
+6. Who will benefit from this project?
+This project has multiple categories of beneficiaries. Understanding them is especially important because it helps demonstrate the scale and relevance of the problem.
+A. Primary beneficiaries
+These are the people who would directly use the application.
+
+
+
+
+
+
+
+
+
+
+1. Rural communities
+
+People living in villages or remote areas where healthcare information and reliable connectivity may be limited.
+
+Benefit: Easier access to basic urgency guidance and nearby healthcare-resource information.
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Elderly people
+
+Older individuals who may need assistance navigating healthcare options.
+
+Benefit: Simple interfaces, understandable questions, and easier identification of care resources.
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Families, parents, and caregivers
+
+People responsible for looking after children, elderly family members, and other dependants.
+
+Benefit: Structured support when deciding how to seek professional assistance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. People with limited healthcare literacy
+
+Users who struggle to understand complicated medical information or healthcare terminology.
+
+Benefit: Simple language, step-by-step interactions, and regional-language accessibility.
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. People in low-connectivity and crisis-affected regions
+
+Communities where connectivity is interrupted by geography, infrastructure limitations, or disasters.
+
+Benefit: Continued access to saved resources and core application functions.
+
+
+
+B. Secondary beneficiaries
+These groups may use the platform to improve their ability to provide assistance.
+Beneficiary	Potential benefit
+Community health workers	Structured information gathering and facility navigation
+ASHA workers	Additional digital support during community-level healthcare interactions
+Primary Health Centres	Better-informed referrals and improved awareness of local services
+Local clinics	Potentially more appropriate resource referrals
+NGOs	A way to distribute verified local assistance information
+Emergency-response organizations	Better-informed community members and clearer resource information
+Local governments	A possible additional channel for communicating public health resources
+
+C. Wider societal beneficiaries
+The project could also benefit society at a broader level.
+
+Rural communities: Better access to reliable information about available health resources.
+
+Underserved populations: Reduced dependence on high-speed internet for essential information.
+
+Healthcare systems: Potentially better navigation and more appropriate referrals.
+
+Disaster-affected communities: Easier access to stored emergency information when digital infrastructure is disrupted.
+
+Public-health organizations: An additional channel for distributing verified guidance and local resource information.
+
+7. What impact could this project create?
+To understand the potential impact, examine it over three time horizons.
+Short-term impact
+Immediate potential impact
+- Helps people understand the potential urgency of a situation.
+- Reduces confusion about which services to contact.
+- Provides access to saved information when internet connectivity fails.
+- Makes healthcare-resource information easier to find.
+- Supports caregivers and community health workers.
+
+Medium-term impact
+- Encourages people to seek appropriate professional assessment when required.
+- Helps users navigate local healthcare infrastructure.
+- Makes emergency contact information more accessible.
+- Supports multilingual digital healthcare access.
+- Could improve coordination between community members and participating service providers.
+Long-term impact
+If properly validated and adopted, the platform could become a community-level digital assistance network.
+
+It could expand to support:
+- Rural healthcare navigation.
+- Disaster-response information.
+- Maternal and child healthcare navigation.
+- Public-health awareness.
+- Community healthcare services.
+- Local emergency-resource directories.
+- Partnerships with hospitals and NGOs.
+The long-term vision is a digital platform that makes reliable assistance information accessible regardless of a person's internet connectivity.
+
+Important distinction: These are potential benefits, not guaranteed outcomes. Actual effects on healthcare delays, patient outcomes, or mortality would need to be measured through properly designed real-world evaluation.
+
+8. Why offline capability is such an important part of the concept
+This is arguably the most distinctive technical and social feature of the problem statement.
+
+A conventional AI application might require a stable connection to a remote server.
+
+Your concept aims to make essential functionality available directly on the user's device.
+
+There are three operating conditions to consider.
+Scenario 1: Internet available
+Connected
+
+The application can use locally stored data alongside online services.
+
+It can retrieve updated facility information, validate contact details, refresh resource directories, and synchronize permitted information.
+
+
+Scenario 2: Internet unavailable, phone network available
+Limited connection
+
+The application can continue its cached screening and navigation functions.
+
+It may also allow the user to call a saved emergency number using the mobile network, depending on device and network availability.
+
+
+Scenario 3: No network connectivity
+Fully offline
+
+Essential locally stored information and screening functions can remain available.
+
+However, a call, live facility-status check, remote dispatch, or online synchronization cannot be guaranteed without a communication connection.
+
+
+One critical technical distinction
+There is a major difference between these two claims:
+- "The application works offline."
+- "The application can contact emergency services offline."
+The first is achievable for cached application features.
+
+The second is not generally possible without a working communication channel.
+
+Similarly, an offline directory can tell users about the nearest known hospital, but it cannot guarantee that the hospital currently has available beds, staff, or an ambulance.
+
+Your project should show when resource information was last updated and clearly distinguish confirmed availability from previously stored information.
+
+9. How AI contributes to the project
+The AI component should have specific responsibilities.
+
+It should not simply be an ordinary chatbot with an emergency theme.
+
+A more reliable design separates language understanding from safety-critical decisions.
+AI capability	Purpose
+Natural-language understanding	Understand users' descriptions of their concerns
+Structured question generation	Guide users through relevant questions
+Language assistance	Make interactions understandable in different languages
+Text simplification	Explain resource information in everyday language
+Information extraction	Organize answers into a structured summary
+Decision-support integration	Supply relevant information to a validated triage pathway
+Resource matching	Help identify relevant types of nearby services
+
+The most important design principle
+AI should help users communicate and navigate; validated rules should govern high-risk escalation.
+
+For example, a lightweight language model could understand what a user is trying to communicate.
+
+However, the application should use a clinically reviewed decision-support system to determine the appropriate urgency pathway.
+
+Uncertainty, missing information, or concerning answers should not result in a reassuring automated conclusion.
+
+This division is important because health triage is a high-stakes application where incorrect information could delay necessary medical care.
+
+10. Understanding the real-world challenges the project addresses
+Existing challenge	How the proposed platform addresses it
+Confusion about urgency	Structured triage assistance
+Complicated medical language	Plain-language AI interaction
+Internet dependency	Offline-first functionality
+Limited knowledge of local services	Downloadable resource directory
+Difficulty finding emergency contacts	Accessible emergency contact information
+Language barriers	Regional-language interaction
+Lack of digital confidence	Simple guided interface
+Fragmented resource information	Centralized resource-navigation experience
+Caregiver uncertainty	Structured information gathering
+Connectivity interruptions	Cached essential application features
+
+The important insight here is that the project combines multiple small improvements into a single useful experience.
+
+11. What makes this project different from an ordinary health chatbot?
+This distinction is essential for the quality of your hackathon submission.
+Ordinary health chatbot	Your proposed application
+Mainly answers health-related questions	Focuses on urgency and navigation
+Often depends on online AI services	Designed for offline operation
+Primarily provides conversational responses	Provides structured next steps
+May offer general healthcare information	Connects information to local resources
+Usually focuses on individual users	Can also support caregivers and community workers
+May not know the user's local services	Uses a locally stored resource directory
+Often stops after answering	Helps the user identify how to reach assistance
+
+Your strongest differentiator is not merely AI.
+
+It is the combination of:
+
+Offline-first access + structured urgency assessment + verified local-resource navigation.
+
+12. Important limitations and risks
+A strong project analysis must acknowledge limitations rather than presenting the solution as perfect.
+
+There are six particularly important risks.
+1. Incorrect urgency classification
+An application could incorrectly classify a serious situation as less urgent.
+
+Mitigation: Use validated, clinician-approved protocols, conservative escalation, extensive testing, and clear instructions to seek professional help when uncertain.
+2. Outdated resource information
+A hospital's address, telephone number, operating hours, or services may change.
+
+Mitigation: Maintain verified directories, include update timestamps, and ask users to confirm information with the facility where possible.
+3. False claims about availability
+A hospital being geographically nearby does not mean it currently has available capacity.
+
+Mitigation: Display the distinction between a known nearby facility and a live-confirmed available facility.
+4. Inaccurate AI-generated responses
+Generative AI can misunderstand language or produce misleading information.
+
+Mitigation: Restrict AI to clearly defined tasks and use reviewed, structured rules for medical escalation.
+5. Privacy concerns
+The platform may process sensitive information about a person's health or safety.
+
+Mitigation: Minimize collected information, protect locally stored data, explain consent, and avoid unnecessary cloud storage or sharing.
+6. Lack of actual medical infrastructure
+Even an excellent application cannot create a hospital, ambulance, doctor, or emergency-response team where none exists.
+
+Mitigation: Connect people to verified available services, clearly communicate limitations, and build partnerships with local organizations.
+
+This final point is especially important.
+
+Your application cannot solve every healthcare-access problem. It can make existing resources easier to discover and navigate.
+
+13. Project scope: What problem should the application actually solve?
+Your original problem statement is broad, which creates significant opportunities, but it also introduces a risk: trying to solve too many problems at once.
+
+A strong project should have one clear central objective.
+
+I recommend understanding the scope through these three layers.
+Core functionality
+Health urgency and resource navigation
+
+Help people understand potential urgency through structured questions and find relevant nearby medical assistance.
+
+
+Supporting functionality
+Offline-first accessibility
+
+Ensure essential screening, information, and saved resource data remain available without continuous connectivity.
+
+
+Expansion functionality
+Wider emergency and safety navigation
+
+Support navigation to relevant safety, disaster-response, and other emergency services.
+
+
+This creates a logical product structure.
+
+It also prevents the application from becoming a collection of unrelated features.
+
+For an initial deployment, selecting one district or community and validating a limited number of healthcare pathways would make the project more credible.
+
+14. How can the project's success be measured?
+It is important to have measurable objectives.
+
+Instead of claiming that the application will save thousands of lives, identify outcomes that can actually be tested.
+Measurement	What it tells you
+Offline completion rate	Whether users can complete essential tasks without internet
+Triage accuracy against clinical review	Whether the system's classifications align with approved reference decisions
+High-risk case sensitivity	How reliably the system flags cases requiring urgent escalation
+Resource-directory accuracy	Whether facility details and contacts are correct
+Time to locate assistance	Whether navigation makes relevant resources easier to find
+Language comprehension	Whether users understand the information presented
+Accessibility testing	Whether different users can operate the application
+User task-completion rate	Whether users can successfully reach the intended information
+
+An especially important metric is the rate of serious cases that the system incorrectly classifies as non-urgent. This should receive particular attention during safety testing.
+
+For a hackathon prototype, you can evaluate the experience using simulated scenarios and clinician-reviewed reference cases rather than experimenting with real emergencies.
+
+15. The broader vision: What could this project eventually become?
+The project could grow beyond a standalone PWA.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10
+
+
+
+
+
+
+
+
+
+
+
+Imagine a broader community assistance network.
+
+A person uses the application to gather relevant information. The application identifies an appropriate resource. A nearby healthcare provider or community worker can receive the user's information with appropriate consent and through an established integration.
+
+Local organizations could maintain facility directories. Government or healthcare partners could provide updated service information. Community health workers could use the same platform to assist people who need help navigating services.
+
+Over time, this could create a connected ecosystem involving:
+- Citizens and families.
+- Caregivers.
+- ASHA and community health workers.
+- Healthcare providers.
+- NGOs.
+- Emergency-response services.
+- Local public-health authorities.
+The larger vision would be to make access to assistance less dependent on the user's technical knowledge, language, and internet availability.
+
+16. Strong problem-statement framing for your submission
+Your original statement is already compelling, but its framing can be made more precise.
+Recommended refined problem statement
+Offline-First AI-Powered Healthcare Triage and Emergency Resource Navigation
+Millions of people in rural, underserved, and crisis-affected communities face difficulty recognizing the urgency of health and safety situations and identifying the right assistance. This problem becomes even more challenging when internet connectivity is unreliable, healthcare information is fragmented, and nearby resources are difficult to locate.
+
+The challenge is to develop an intelligent, offline-first Progressive Web Application that helps users communicate their concerns through simple, structured interactions; identifies potential urgency using validated decision-support protocols; and guides them toward relevant nearby healthcare facilities, emergency contacts, and local support services.
+
+The solution should support low-connectivity environments, accessible multilingual interaction, locally stored resource directories, privacy-conscious data handling, and reliable escalation to qualified professionals or emergency services when required.
+
+The ultimate objective is to bridge the gap between identifying a possible emergency and reaching appropriate assistance, regardless of continuous internet availability.
+
+The central objective in one sentence
+To reduce the time, confusion, and information barriers between recognizing a potential emergency and reaching the appropriate source of help.
+The fundamental social impact
+Making essential healthcare and emergency assistance information more accessible to people who are often underserved by conventional digital healthcare systems.
+The primary beneficiaries
+Rural communities, people in low-connectivity regions, elderly individuals, caregivers, families, people with limited healthcare literacy, and community health workers.
+
+17. Final project evaluation
+Here is how I would assess this problem statement from a project-selection and hackathon perspective.
+Evaluation area	Assessment
+Real-world relevance	Very high
+Social impact potential	Very high
+Scope for AI innovation	High
+Offline technology relevance	Very high
+Potential beneficiaries	Broad
+Practical prototype potential	High if carefully scoped
+Future expansion potential	Very high
+Technical and safety complexity	High
+Need for real-world partnerships	High for actual deployment
+
+My overall assessment
+Strong project opportunity
+The strongest aspect of this problem statement is that it combines a meaningful social problem with a practical technical challenge.
+
+It is not simply asking you to build an AI chatbot or another healthcare application. It asks you to address the entire journey from uncertainty to appropriate assistance, even when internet access is unavailable.
+
+Its potential becomes especially compelling when offline functionality, verified resource information, accessibility, and safety-focused AI are treated as essential parts of the solution rather than optional features.
+
+My most important conclusion
+I would describe this project as a last-mile healthcare and emergency accessibility platform.
+
+The central issue is that people can have access to a smartphone but still lack timely access to understandable guidance and reliable information about where to get help.
+
+Your solution addresses that gap.
+
+Its real value is not that AI can replace a doctor, diagnose a disease, or dispatch an ambulance. Its value is that it can help a person take a more informed next step when they are uncertain, disconnected, or struggling to find assistance.
+
+A powerful final pitch for the project would be:
+"We are building more than an AI healthcare assistant. We are building an offline-first bridge between people in need and the help that already exists around them. Because access to essential assistance should not depend on having a perfect internet connection."
+
+That is the central purpose, social value, and project identity of this idea.

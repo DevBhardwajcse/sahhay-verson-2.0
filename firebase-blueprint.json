@@ -1,0 +1,218 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Private user profile with language preference, optional consented medical history summary, and DPDP privacy settings.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "displayName": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "maxLength": 200
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "enum": ["en", "hi"]
+        },
+        "consentMedicalHistory": {
+          "type": "boolean"
+        },
+        "consentSaveSessions": {
+          "type": "boolean"
+        },
+        "consentVoiceTranscripts": {
+          "type": "boolean"
+        },
+        "retentionDays": {
+          "type": "integer"
+        },
+        "ageGroup": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "allergiesSummary": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "conditionsSummary": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "medicationsSummary": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "patientRefId": {
+          "type": "string",
+          "maxLength": 40,
+          "pattern": "^[A-Z0-9\\-]+$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "uid",
+        "preferredLanguage",
+        "consentMedicalHistory",
+        "consentSaveSessions",
+        "consentVoiceTranscripts",
+        "retentionDays",
+        "patientRefId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "SavedSession": {
+      "title": "Saved Medical Session",
+      "description": "User-consented medical assistant summary, medicine scan summary, injury observation summary, or triage report. Never stores raw medical images.",
+      "type": "object",
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "userId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "patientRefId": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "sessionType": {
+          "type": "string",
+          "enum": ["general_chat", "medicine_scan", "injury_analysis", "guided_triage", "voice_session"]
+        },
+        "language": {
+          "type": "string",
+          "enum": ["en", "hi"]
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "summary": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "urgencyLevel": {
+          "type": "string",
+          "enum": ["routine", "soon", "urgent", "emergency"]
+        },
+        "consentedTranscript": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "explicitConsent": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "archived"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "sessionId",
+        "userId",
+        "patientRefId",
+        "sessionType",
+        "language",
+        "title",
+        "summary",
+        "urgencyLevel",
+        "explicitConsent",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "AdminAuditLog": {
+      "title": "Administrator Audit Log",
+      "description": "Immutable record of authorized administrative reads, updates, exports, and deletions.",
+      "type": "object",
+      "properties": {
+        "logId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "adminUid": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "adminLabel": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "action": {
+          "type": "string",
+          "enum": ["view_dashboard", "view_patient", "update_record", "delete_record", "export_record", "login", "logout"]
+        },
+        "targetRefId": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "details": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "logId",
+        "adminUid",
+        "adminLabel",
+        "action",
+        "targetRefId",
+        "details",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Private user profile, language preference, optional consented medical history, and privacy settings. Strictly isolated to owner or verified admin."
+    },
+    "/saved_sessions/{sessionId}": {
+      "schema": { "$ref": "#/entities/SavedSession" },
+      "description": "Consented medical chat summaries, medicine scan summaries, injury observation summaries, and guided triage reports."
+    },
+    "/admin_audit_logs/{logId}": {
+      "schema": { "$ref": "#/entities/AdminAuditLog" },
+      "description": "Append-only audit trail for authorized administrative actions."
+    },
+    "/admins/{adminUid}": {
+      "schema": "AdminRoleMarker",
+      "description": "Trusted database role registry for authorized administrators."
+    }
+  }
+}

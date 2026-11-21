@@ -1,0 +1,1082 @@
+# EXTENDED MASTER IMPLEMENTATION PROMPT
+# SAHAAY — GEMINI MULTIMODAL AI MEDICAL ASSISTANT, MEDICINE SCANNER, INJURY IMAGE ANALYZER, BILINGUAL VOICE CHATBOT AND SECURE ADMINISTRATION SYSTEM
+
+## ROLE
+
+Act as an expert:
+
+- Senior Google Gemini API developer.
+- Multimodal AI engineer.
+- Medical information assistant architect.
+- Computer vision engineer.
+- Voice AI engineer.
+- Full-stack application developer.
+- Google AI Studio Build Mode specialist.
+- React and TypeScript engineer.
+- Backend security specialist.
+- Database architect.
+- Authentication and authorization engineer.
+- Premium healthcare UI/UX designer.
+
+You are working on my existing application, SAHAAY.
+
+I want you to integrate an advanced Google Gemini-powered medical assistant into my existing emergency assistance and healthcare navigation platform.
+
+Do not destroy or replace the existing working application.
+
+Inspect the existing source code, components, backend, routing, database, Google Maps integration, and UI before making changes.
+
+Preserve existing features and integrate the new functionality into the same product.
+
+Do not simply write documentation or generate a static demonstration.
+
+Actually implement and test the requested functionality.
+
+---
+
+# PART 1 — NEW AI MEDICAL ASSISTANT IDENTITY
+
+Create a powerful intelligent assistant called:
+
+SAHAAY AI MEDICAL ASSISTANT
+
+It must use Google Gemini as its underlying AI intelligence.
+
+The assistant should be multimodal.
+
+It must understand:
+
+1. Text.
+2. Medicine packaging images.
+3. Appropriate visible injury images.
+4. Spoken Hindi.
+5. Spoken English.
+
+The assistant must respond through:
+
+- Text.
+- Natural-sounding spoken audio.
+- Bilingual interaction.
+
+The purpose is to help people understand general medical information, medicine labels, and visible injury-related concerns while identifying situations where qualified medical attention is appropriate.
+
+It must never claim to be a doctor or offer definitive medical diagnoses.
+
+---
+
+# PART 2 — GOOGLE GEMINI MULTIMODAL INTEGRATION
+
+Use the official Google Gemini API and the current supported Gemini SDK.
+
+First inspect the existing project framework and available Google AI Studio integrations.
+
+Choose a currently supported Gemini model capable of processing the required text and image inputs.
+
+For voice, choose a currently available Gemini Live API model if supported in the current project.
+
+Do not hardcode an obsolete or unavailable model identifier.
+
+Keep the model configuration centralized in the backend so models can be updated without rewriting the interface.
+
+The application must support multimodal inputs through a properly structured backend service.
+
+### Gemini capabilities required
+
+A. Medical question understanding.
+
+B. Medicine packaging analysis.
+
+C. Injury image observations.
+
+D. Natural-language processing.
+
+E. Hindi and English responses.
+
+F. Conversational context.
+
+G. Spoken input and spoken output.
+
+H. Structured response generation.
+
+I. Uncertainty detection.
+
+J. Medical safety and escalation instructions.
+
+Use typed, structured responses wherever practical so the frontend can render consistent result panels.
+
+---
+
+# PART 3 — ADVANCED MEDICAL CHATBOT INTERFACE
+
+Build an attractive, premium, responsive medical chatbot interface.
+
+The interface should contain:
+
+- Conversation messages.
+- AI response indicators.
+- Text input.
+- Send button.
+- Microphone button.
+- Image upload.
+- Camera capture where supported.
+- Medicine Scan shortcut.
+- Injury Analysis shortcut.
+- Language selection.
+- Conversation history.
+- Clear conversation action.
+- Emergency assistance shortcut.
+
+Create distinctive message styling for:
+
+- User messages.
+- AI responses.
+- Medical information panels.
+- Medicine analysis results.
+- Image observations.
+- Emergency warnings.
+- Doctor-consultation recommendations.
+
+The assistant should not dump very long blocks of text into the chat.
+
+Use readable sections, expandable information panels, and appropriate visual hierarchy.
+
+Do not use fake messages or hardcoded conversational responses in place of real Gemini responses.
+
+---
+
+# PART 4 — MEDICINE SCANNER AND IMAGE ANALYSIS MODULE
+
+This is one of the application's most important capabilities.
+
+Create an advanced medicine image scanner.
+
+## User interface
+
+Provide:
+
+"Scan Medicine" and "Upload Medicine Image".
+
+The user should be able to select a photograph from their device or capture an image using the camera where supported.
+
+Show the selected image preview before uploading.
+
+Allow the user to cancel or replace the image.
+
+Display a processing indicator during analysis.
+
+## Backend image processing
+
+Create a dedicated medicine-analysis endpoint.
+
+The endpoint must:
+
+1. Authenticate and validate the request.
+2. Validate the image MIME type.
+3. Check file-size limits.
+4. Reject unsupported files.
+5. Process the image securely.
+6. Pass the image to the configured Gemini multimodal model through the server.
+7. Request structured extraction of visible medicine-label information.
+8. Validate the model response.
+9. Return the result to the frontend.
+10. Avoid unnecessary permanent storage of the image.
+
+## Information to extract
+
+Where visible and reliable, identify:
+
+- Medicine product name.
+- Active ingredients.
+- Strength.
+- Dosage form.
+- Manufacturer.
+- Brand.
+- Expiry date.
+- Packaging information.
+- Warnings printed on the packaging.
+
+The system should distinguish between clearly read information and uncertain visual inference.
+
+## Medicine information result design
+
+Display an organized result containing:
+
+### MEDICINE IDENTIFICATION
+
+Possible medicine name.
+
+### ACTIVE INGREDIENT
+
+Visible or verified active ingredients.
+
+### COMMON USES
+
+Explain the generally recognized uses of the identified medicine using trustworthy medical references.
+
+### MEDICINE CATEGORY
+
+Explain what general category the medicine belongs to.
+
+### PACKAGING INFORMATION
+
+Display readable strength, form, manufacturer, and expiry information where available.
+
+### SAFETY AND LIMITATIONS
+
+Explain why an image alone cannot establish whether a medicine is appropriate for an individual.
+
+### PROFESSIONAL CONSULTATION
+
+Recommend discussing medicine suitability with a qualified pharmacist or doctor.
+
+## Identification verification
+
+Gemini must not be the sole authority for drug identification.
+
+Where available, cross-check the extracted medicine name and active ingredient with a trusted, maintained pharmaceutical reference dataset or authorized drug-information service.
+
+Show a confidence indicator based on image readability and verification availability.
+
+Do not invent a numerical confidence percentage without a calibrated validation process.
+
+If identification is uncertain, visibly mark it as uncertain.
+
+Do not infer the identity of an unknown loose pill from appearance alone.
+
+## MEDICINE SAFETY
+
+Never:
+
+- Prescribe a medicine.
+- Generate personalized dosages.
+- Recommend starting or stopping medication.
+- Recommend replacing a prescription drug.
+- Guarantee authenticity from an image.
+- Claim a medicine is safe for an individual based on appearance.
+- Make unsupported claims about medicine interactions.
+- Tell children or teenagers to independently take medication.
+
+Individual medication decisions must be referred to qualified healthcare professionals.
+
+---
+
+# PART 5 — INJURY IMAGE ANALYZER
+
+Create a separate injury-image analysis feature.
+
+The objective is to let users upload an appropriate visible injury photograph and obtain limited, cautious general observations.
+
+## Interface
+
+Create a clearly labeled feature:
+
+"Analyze Visible Injury"
+
+Allow:
+
+- Camera capture.
+- Image upload.
+- Image preview.
+- Cancel.
+- Replace image.
+- Analyze image.
+
+Clearly tell users that image analysis is informational and cannot replace an in-person medical examination.
+
+## Gemini image analysis
+
+Pass the selected image to the server-side multimodal model.
+
+Ask the model to examine only observable characteristics.
+
+Generate a structured result with:
+
+1. General visible observations.
+2. Image clarity and limitations.
+3. Information that cannot be determined from the photograph.
+4. Important follow-up questions.
+5. General next-step guidance.
+6. Recommendation about professional assessment.
+
+Do not generate a definitive injury diagnosis.
+
+Do not claim to establish internal damage, infection, fracture, or severity from an image alone.
+
+If an image is unclear, request a clearer image rather than hallucinating information.
+
+Do not produce graphic descriptions.
+
+If the user describes an immediate medical danger, stop image analysis and prioritize emergency guidance.
+
+## Follow-up questions
+
+The assistant may ask a small number of relevant questions about the incident and current condition.
+
+Avoid collecting unnecessary identifying or sensitive information.
+
+## Final result panel
+
+Display:
+
+- Image observations.
+- Limitations.
+- Relevant caution.
+- Recommended next steps.
+- When to see a doctor.
+- When urgent help may be needed.
+
+Include a prominent action:
+
+"Find Nearby Hospital"
+
+This action should connect directly to the existing Google Maps emergency-resource module.
+
+---
+
+# PART 6 — GENERAL MEDICAL QUESTION ANSWERING
+
+Build a dedicated medical-question answering system.
+
+Users should be able to ask natural-language questions.
+
+Examples of supported topics:
+
+- General health education.
+- Common symptoms and their possible explanations.
+- Basic medical terminology.
+- General health precautions.
+- Medicine-label information.
+- Healthcare-resource navigation.
+- Preparing questions for a doctor.
+- Understanding general medical reports.
+
+## Response generation
+
+For each question, generate a clear, organized response.
+
+Use:
+
+- Simple explanations.
+- Clear language.
+- Short paragraphs.
+- Headings when useful.
+- Appropriate caveats.
+- Relevant warnings.
+- A practical next-step recommendation.
+
+Use trusted medical references and clinician-reviewed content where available.
+
+Do not present hallucinated studies, references, or medical facts as verified.
+
+When authoritative grounding is unavailable, state that the information could not be independently verified.
+
+## Medical response policy
+
+The chatbot is informational, not diagnostic.
+
+Never:
+
+- Claim to diagnose a disease.
+- Prescribe medications.
+- Generate personalized medication schedules.
+- Replace professional examination.
+- Guarantee that a symptom is harmless.
+- Recommend delaying emergency assessment.
+- Treat an image as a definitive clinical report.
+
+Whenever medical uncertainty exists, recommend appropriate professional assessment.
+
+Every relevant answer should include a section:
+
+"When should you consult a doctor?"
+
+For potentially serious concerns, use an immediate escalation message rather than continuing a routine conversation.
+
+---
+
+# PART 7 — BILINGUAL HINDI AND ENGLISH VOICE ASSISTANT
+
+I specifically want natural Hindi and English voice conversation.
+
+This should feel like communicating with a real conversational AI assistant, not simply converting typed text into speech.
+
+## Language functionality
+
+Support:
+
+- English.
+- Hindi.
+- Automatic language detection.
+- Manual language switching.
+- Voice input in Hindi.
+- Voice input in English.
+- Hindi speech responses.
+- English speech responses.
+- Text transcription.
+- Voice conversation history where consented.
+
+Allow users to choose their preferred language when beginning a session.
+
+If the user speaks Hindi, respond in Hindi.
+
+If the user speaks English, respond in English.
+
+Optionally support Hinglish when the user explicitly prefers it.
+
+Do not switch languages randomly.
+
+## Voice interaction
+
+Create the following controls:
+
+- Start voice conversation.
+- Stop voice conversation.
+- Mute.
+- Unmute.
+- Interrupt AI speech.
+- Repeat response.
+- Switch to text conversation.
+
+Show a clear microphone-active state.
+
+Request microphone permission only when needed.
+
+Handle denied permissions gracefully.
+
+## Technical voice architecture
+
+Inspect current Gemini Live API availability.
+
+Prefer the official supported Gemini Live API for low-latency two-way audio conversations where available.
+
+Otherwise use a robust speech-to-text and text-to-speech fallback.
+
+All confidential Gemini credentials must remain on the server.
+
+For direct browser Live API sessions, use a correctly restricted, short-lived ephemeral token obtained through an authenticated backend flow, if supported by the current official API.
+
+Never send the permanent Gemini API key to the browser.
+
+The voice system must have proper error handling for:
+
+- Microphone permission denial.
+- Unsupported browser features.
+- Network interruption.
+- Live session disconnection.
+- Empty audio.
+- Failed transcription.
+- AI response timeout.
+
+Voice interaction must never delay access to emergency assistance.
+
+---
+
+# PART 8 — MEDICAL CONVERSATION CONTEXT
+
+The chatbot should understand the current conversation.
+
+For example:
+
+1. The user uploads a medicine package.
+2. Gemini reads the possible product name.
+3. The user asks what the medicine is generally used for.
+4. The assistant understands that the question refers to the previous image.
+5. It provides appropriately qualified information.
+
+Similarly:
+
+1. The user uploads a visible injury image.
+2. Gemini provides limited observations.
+3. The user asks a follow-up question.
+4. The assistant uses the available context.
+5. It asks for professional assessment when needed.
+
+Store only the minimal session context needed for continuity.
+
+Do not permanently retain information by default.
+
+Give users control over whether a medical conversation is saved.
+
+---
+
+# PART 9 — COMPLETE ADMINISTRATOR DASHBOARD
+
+Create a separate, secure administrator portal.
+
+Suggested route:
+
+`/admin`
+
+It must not be accessible to ordinary users without valid administrator authentication.
+
+The admin dashboard should be professionally designed and consistent with the existing SAHAAY UI.
+
+## Administrator authentication
+
+The initial administrator username should support the requested label:
+
+`dev admin`
+
+Do not embed any supplied password in the source code.
+
+Do not use the weak password previously supplied in the conversation as a permanent login credential.
+
+Instead, establish the administrator through a secure one-time server-side bootstrap process using deployment secrets.
+
+Require a strong, unique password and a password change or secure credential enrollment during initial setup.
+
+## Authentication requirements
+
+- Server-side credential verification.
+- Strong password hashing using Argon2id or an appropriately configured bcrypt implementation.
+- Secure session management.
+- HttpOnly cookies.
+- Secure cookies in production.
+- SameSite protection.
+- CSRF protection where applicable.
+- Login rate limiting.
+- Brute-force protection.
+- Temporary lockout or additional verification for repeated failures.
+- Session expiration.
+- Logout.
+- Session rotation.
+- Optional multi-factor authentication.
+
+Never store plaintext passwords.
+
+Never return password hashes to the client.
+
+Never include credentials in error messages or logs.
+
+## Admin dashboard home
+
+Display:
+
+- Total registered patient records.
+- Number of saved medical sessions.
+- Number of medicine-analysis records.
+- Number of injury-analysis records.
+- Recent activity.
+- Data retention information.
+- Relevant administrative notifications.
+
+Use real backend data.
+
+Never generate fake statistics and present them as actual patient statistics.
+
+## Patient management
+
+Create a patient directory with:
+
+- Patient reference ID.
+- Display name where available and permitted.
+- Record creation date.
+- Saved medical-session count.
+- Saved medicine-analysis count.
+- Saved injury-analysis count.
+- Preferred language.
+- Relevant record status.
+
+Do not collect unnecessary identifying information.
+
+## Individual patient detail page
+
+When an authorized administrator opens a patient record, display only the information the administrator is permitted to access.
+
+Potential sections:
+
+1. Patient profile information.
+2. Saved medical queries.
+3. Medical assistant conversation summaries.
+4. Medicine-image analysis results.
+5. Injury-image analysis summaries.
+6. Saved voice transcripts, if explicitly consented to.
+7. Session dates.
+8. Record-management controls.
+9. Consent and retention information.
+
+Original medical images should not be retained or displayed by default.
+
+If optional image retention is implemented, make its purpose and retention period explicit, use appropriate security controls, and enforce permission checks.
+
+## Administrative search and filtering
+
+Provide:
+
+- Patient reference search.
+- Date filtering.
+- Saved-record filtering.
+- Medical-session filtering.
+- Language filtering.
+
+## Administrative record management
+
+Authorized administrators may:
+
+- View permitted records.
+- Update permitted record metadata.
+- Remove records when legally and operationally appropriate.
+- Apply the configured retention policy.
+- Export permitted records under controlled authorization.
+
+All data access, changes, and exports must be recorded in an audit log.
+
+## IMPORTANT PRIVACY REQUIREMENT
+
+Do not create unrestricted patient-data access merely because someone knows the admin URL.
+
+Enforce authorization on the backend for every administrative API.
+
+Apply role-based access control and consent requirements.
+
+For actual healthcare deployment, the platform must receive appropriate privacy, legal, and healthcare governance review before real patient data is collected.
+
+Use clearly marked synthetic records in development and hackathon demonstrations.
+
+---
+
+# PART 10 — MAXIMUM PRACTICAL GEMINI API SECURITY
+
+This section is extremely important.
+
+I want the Gemini API key and all confidential API credentials protected by a proper security architecture.
+
+However, do not claim that any application or folder is completely invulnerable to hackers.
+
+Implement defense-in-depth and protect the server environment, database, API integrations, and user records.
+
+## GEMINI API KEY SECURITY
+
+Use Google AI Studio's supported Secrets facility.
+
+For the current Build Mode environment, inspect how its server-side secret injection is configured.
+
+Use:
+
+`process.env.GEMINI_API_KEY`
+
+only in server-side code.
+
+Never:
+
+- Write the Gemini API key directly in frontend JavaScript.
+- Write it in React components.
+- Write it in a public environment variable.
+- Commit it to GitHub.
+- Put it in HTML.
+- Put it in browser network payloads.
+- Display it in the admin panel.
+- Print it in console logs.
+- Return it in API responses.
+- Place it in a publicly downloadable configuration file.
+- Store it in localStorage.
+- Expose it through a public debug endpoint.
+
+Every Gemini API request must pass through the server-side backend.
+
+## API architecture
+
+Implement:
+
+Frontend → Authenticated backend → Gemini API.
+
+The frontend must never directly use the permanent Gemini API credential.
+
+The server should:
+
+1. Validate the authenticated request.
+2. Validate inputs and media files.
+3. Enforce request-size limits.
+4. Apply request-rate limits.
+5. Apply usage limits.
+6. Call Gemini using server-side credentials.
+7. Validate structured results.
+8. Return only the information required by the frontend.
+
+## Additional security
+
+Implement appropriate:
+
+- HTTPS.
+- Secure HTTP headers.
+- Content Security Policy.
+- CORS allowlisting.
+- CSRF protection.
+- Input validation.
+- Output validation.
+- Upload validation.
+- Request-size restrictions.
+- Rate limiting.
+- Dependency management.
+- Secure error handling.
+- Secret management.
+- Database access controls.
+- Backup protections.
+- Audit logging.
+
+Do not expose internal stack traces or credentials.
+
+Do not log health images, personal medical records, complete API keys, passwords, or secret tokens.
+
+Do not store uploads in a publicly accessible folder.
+
+Use restricted upload storage and automatic deletion according to the configured retention policy.
+
+## Protect administrative APIs
+
+Every admin request must undergo backend authorization.
+
+Hiding the admin route is not sufficient.
+
+A normal user must not be able to access patient information by directly calling backend endpoints.
+
+Do not rely only on frontend route protection.
+
+Never trust a user-supplied admin role or user ID without verifying it on the server.
+
+## Security validation
+
+After implementation:
+
+- Inspect the source for exposed keys.
+- Inspect frontend build output for secret leakage.
+- Inspect API response payloads.
+- Test unauthenticated admin access.
+- Test unauthorized patient-record access.
+- Test invalid sessions.
+- Test repeated login attempts.
+- Test upload validation.
+- Test CORS restrictions.
+- Test that server errors do not expose internal data.
+- Verify that admin screens never show Gemini credentials.
+
+Document anything that cannot be fully tested in the current environment.
+
+Do not claim the product is unhackable.
+
+---
+
+# PART 11 — DATABASE AND PATIENT DATA MANAGEMENT
+
+Inspect the existing database before choosing a new storage provider.
+
+Do not create a second database unnecessarily.
+
+Use an appropriate persistent database integration supported by the project.
+
+Keep the following categories logically separated:
+
+1. Account information.
+2. Authentication and authorization records.
+3. Patient-approved medical session records.
+4. Medicine-analysis results.
+5. Injury-analysis results.
+6. Optional voice transcripts.
+7. Consent records.
+8. Administrative audit records.
+9. System configuration.
+
+Use unique record identifiers.
+
+Apply strict authorization at database and backend levels.
+
+Encrypt data in transit and protect stored sensitive information using the database and hosting platform's supported security mechanisms.
+
+Store only necessary information.
+
+Provide configured retention and deletion controls.
+
+The frontend must never have unrestricted access to the entire patient database.
+
+---
+
+# PART 12 — DESIGN AND UI/UX
+
+I want the medical assistant to look like a premium healthcare technology product.
+
+Use my provided UI/UX reference screenshots as the primary design reference.
+
+Study:
+
+- Layout.
+- Typography.
+- Spacing.
+- Component hierarchy.
+- Navigation.
+- Colors.
+- Borders.
+- Shadows.
+- Icon styles.
+- Information density.
+- Responsive design.
+
+Preserve the established SAHAAY design system.
+
+Do not introduce a generic AI chatbot template that visually conflicts with my existing product.
+
+## Medical assistant screen
+
+Create a high-quality conversational interface.
+
+Its main elements should be:
+
+- Header with SAHAAY AI identity.
+- Language selection.
+- Chat conversation.
+- Text composer.
+- Microphone.
+- Image upload.
+- Camera capture.
+- Medicine scanner.
+- Injury analysis.
+- Emergency assistance.
+
+## Medicine analysis result screen
+
+Use a structured, readable medicine information panel.
+
+Distinguish verified label information from uncertain AI interpretation.
+
+## Injury analysis result screen
+
+Use simple, non-graphic visual observations and clear next-step guidance.
+
+## Admin design
+
+Create a dedicated professional administrative dashboard with:
+
+- Secure login.
+- Overview.
+- Patient records.
+- Medical sessions.
+- Image-analysis history.
+- Search and filtering.
+- Audit logs.
+- Settings.
+
+Make the admin dashboard feel like a proper healthcare administration product, not a generic analytics template.
+
+---
+
+# PART 13 — EXISTING SAHAAY FEATURES MUST REMAIN INTEGRATED
+
+Preserve and connect the new medical assistant to the existing application.
+
+The following existing features must remain functional:
+
+- Google Maps integration.
+- User location detection.
+- Nearby hospitals.
+- Nearby pharmacies.
+- Nearby medical clinics and doctors.
+- Police station discovery.
+- Fire station discovery.
+- Ambulance-resource discovery.
+- Government helpline directory.
+- AI triage.
+- Offline-first PWA capabilities.
+- Hindi and English interface.
+
+### Integration examples
+
+After medicine analysis, provide access to relevant nearby healthcare resources where appropriate.
+
+After injury-image analysis, include:
+
+"Find Nearby Hospital"
+
+After a general medical question, include an appropriate resource-navigation action when useful.
+
+If an emergency is suspected, prioritize verified emergency contacts and nearby relevant services.
+
+Do not make every medical interaction automatically trigger unnecessary map searches.
+
+---
+
+# PART 14 — OFFLINE BEHAVIOUR
+
+The new assistant must respect the offline-first architecture.
+
+When internet is unavailable:
+
+- Keep cached application screens available.
+- Keep approved educational content available.
+- Keep previously approved triage workflows available.
+- Keep locally stored emergency numbers available.
+- Keep downloaded independent emergency-resource records available.
+- Display an offline indicator.
+
+Remote Gemini image analysis and remote voice conversations require network connectivity unless a separately implemented and appropriately validated on-device model is available.
+
+Do not display fake AI analysis while offline.
+
+Do not queue and automatically upload private medical images in the background without explicit user consent.
+
+When the connection returns, allow the user to retry an operation manually.
+
+---
+
+# PART 15 — ERROR HANDLING
+
+Create clear user-facing errors for:
+
+- Gemini API unavailable.
+- API quota exceeded.
+- Network disconnection.
+- Invalid medical image.
+- Unsupported image type.
+- Image too large.
+- Unclear medicine packaging.
+- Uncertain image analysis.
+- Failed voice connection.
+- Microphone permission denied.
+- Authentication failure.
+- Unauthorized admin request.
+- Database unavailable.
+
+Do not show raw backend errors or API credentials to users.
+
+Provide useful retry actions where appropriate.
+
+---
+
+# PART 16 — SECURITY AND SAFETY TESTING
+
+Before finishing the implementation, perform a complete test pass.
+
+### Medical assistant
+
+- General medical question.
+- Uncertain health question.
+- High-risk description.
+- User asking for a diagnosis.
+- User requesting a medication recommendation.
+
+### Medicine scanner
+
+- Clear packaging photograph.
+- Blurry image.
+- Partially visible label.
+- Multiple products in an image.
+- Expired product information.
+- Unidentified loose pill.
+- Unsupported image.
+- Incorrect or incomplete OCR.
+
+### Injury image analysis
+
+- Clear, appropriate image.
+- Blurry image.
+- Image with insufficient information.
+- Potentially serious description.
+- User asking for a definitive diagnosis.
+
+### Voice assistant
+
+- Hindi conversation.
+- English conversation.
+- Language switching.
+- Interrupted response.
+- Microphone denied.
+- Network interruption.
+
+### Administrator
+
+- Valid login.
+- Incorrect login.
+- Unauthenticated access.
+- Unauthorized records request.
+- Session expiration.
+- Patient data search.
+- Record access.
+- Record deletion.
+- Audit logging.
+
+### API security
+
+- No key in source code.
+- No key in browser bundles.
+- No key in network response bodies.
+- No secrets in logs.
+- No unrestricted admin endpoints.
+- No public patient-record storage.
+- Correct server-side API communication.
+
+---
+
+# PART 17 — IMPLEMENTATION EXECUTION
+
+Follow these steps in order:
+
+1. Inspect the existing SAHAAY application.
+2. Inspect the existing framework and backend.
+3. Inspect the database and authentication architecture.
+4. Inspect the UI/UX reference screenshots.
+5. Preserve current functionality.
+6. Establish the Gemini server-side integration.
+7. Configure secure environment secrets.
+8. Implement the medical chat interface.
+9. Implement general medical question answering.
+10. Implement medicine package image analysis.
+11. Implement injury image analysis.
+12. Implement bilingual voice conversation.
+13. Connect the assistant to the existing Google Maps and emergency-resource modules.
+14. Implement patient consent and saved-session functionality.
+15. Implement secure administrator authentication.
+16. Implement the admin dashboard.
+17. Implement patient-record management.
+18. Protect all confidential API and database operations.
+19. Test all major functionality.
+20. Fix build errors, runtime errors, and visual inconsistencies.
+21. Provide implementation documentation.
+
+Do not stop after making the UI.
+
+Do not use fake API responses to simulate successful medical analysis.
+
+Do not silently replace the Gemini backend with hardcoded text.
+
+Do not invent medical reference sources.
+
+Do not claim an API integration works until it has been tested.
+
+If a required external service or secret is unavailable, implement the appropriate connection point and clearly explain the remaining configuration.
+
+---
+
+# FINAL ACCEPTANCE CRITERIA
+
+The completed SAHAAY application must have:
+
+1. Real Gemini-powered medical text conversations.
+2. Real Gemini multimodal medicine-image processing.
+3. Real Gemini multimodal injury-image observations.
+4. Natural Hindi and English conversation.
+5. Functional voice interaction.
+6. Clear professional-consultation recommendations.
+7. Appropriate emergency escalation.
+8. Integration with nearby medical resources.
+9. A separate secure admin login.
+10. An authorized patient-record management dashboard.
+11. Secure server-side Gemini API integration.
+12. No publicly exposed Gemini API keys.
+13. Protected patient data.
+14. Consent-based information retention.
+15. A professional, responsive design matching my references.
+16. Existing SAHAAY features preserved.
+17. Functional error handling.
+18. Verified testing of all critical features.
+
+## FINAL PRODUCT VISION
+
+SAHAAY should become a complete intelligent healthcare and emergency assistance platform.
+
+A user should be able to ask a medical question, photograph medicine packaging, upload an appropriate injury image, or speak naturally in Hindi or English.
+
+The assistant should understand the available information, provide carefully qualified general explanations, identify uncertainty, recommend professional medical assessment, and connect the user to appropriate nearby healthcare assistance.
+
+The administrative system should allow authorized management of consented and retained patient records without exposing confidential infrastructure secrets.
+
+The entire application should be secure by design, accessible, privacy-conscious, offline-aware, and professionally implemented.
+
+Build the actual working product in my existing Google AI Studio project.
